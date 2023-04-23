@@ -34,11 +34,11 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+  
     if (isLoggedIn){
     api.getUserInfo()
       .then(profileInfo => setCurrentUser(profileInfo))
       .catch(err => console.log(err))
-
     api.getCards().then(data => {
       setCards(data.map((card) => ({
         _id: card._id,
