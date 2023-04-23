@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import {Link, Navigate} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 
-function Register({isLoggedIn, onRegister}) {
+function Register({ isLoggedIn, onRegister }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -19,18 +19,17 @@ function Register({isLoggedIn, onRegister}) {
     }
 
     if (isLoggedIn) {
-        return <Navigate to="/*"/>;
+        return <Navigate to="/*" />;
     }
 
     return (
         <section className='login'>
             <div className='login__container'>
                 <h2 className='login__title'>Регистрация</h2>
-                <form 
-                onSubmit={handleSubmit}
-                className="login__form"
-                noValidate
-                name="register">
+                <form
+                    onSubmit={handleSubmit}
+                    className="login__form"
+                    name="register">
                     <input
                         className="login__input"
                         id="email"
@@ -55,8 +54,8 @@ function Register({isLoggedIn, onRegister}) {
 
                     <button type="submit" className='login__button-save'>Зарегистрироваться</button>
                     <Link to="/sign-in" className="login__link">
-                    Уже зарегистрированы? Войти
-                </Link>
+                        Уже зарегистрированы? Войти
+                    </Link>
                 </form>
             </div>
         </section>

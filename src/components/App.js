@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import ProtectedRoute from './ProtectedRoute';
 import CurrentUserContext from '../contexts/CurrentUserContext';
@@ -30,11 +29,12 @@ function App() {
 
   const [isInfoTooltipSuccess, setIsInfoTooltipSuccess] = React.useState(false);
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [headerEmail, setHeaderEmail] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (isLoggedIn){
     api.getUserInfo()
       .then(profileInfo => setCurrentUser(profileInfo))
       .catch(err => console.log(err))
@@ -49,7 +49,7 @@ function App() {
       })))
     })
       .catch(err => console.log(err))
-  }, []);
+  }}, [isLoggedIn]);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false)
