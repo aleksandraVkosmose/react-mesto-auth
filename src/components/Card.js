@@ -29,6 +29,7 @@ function Card({ card, onCardLike, onCardDelete, onCardClick }) {
         alt={card.name}
         src={card.link}
         onClick={handleCardClick} />
+        
       {isOwn &&<button
         className={deleteButtonClassName}
         type="button"
