@@ -10,6 +10,8 @@ function AddPlacePopup({ onClose, onAddPlace, onLoading, isOpen }) {
       setPlaceLink('');
   }, [isOpen]);
 
+
+  
   function handleSubmit(e) {
       e.preventDefault();
       onAddPlace({
